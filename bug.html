@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv"></div>
+  <script>
+    //Attempting to access a non-existent attribute
+    let x = document.getElementById("myDiv").getAttribute("data-nonexistent");
+    console.log(x); // Outputs null, but could cause issues if not handled
+
+    //Incorrect use of innerHTML that could lead to XSS vulnerabilities
+    let userSuppliedData = "<script>alert('XSS Vulnerability!');</script>";
+    document.getElementById("myDiv").innerHTML = userSuppliedData;
+  </script>
+</body>
+</html>
