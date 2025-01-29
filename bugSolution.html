@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv" data-myattribute="Hello"></div>
+  <script>
+    //Safe way to check for attribute existence before accessing
+    let myDiv = document.getElementById("myDiv");
+    let x = myDiv.hasAttribute("data-myattribute") ? myDiv.getAttribute("data-myattribute") : null;
+    console.log(x); // Outputs "Hello"
+
+    //Safe way to insert user data, using textContent instead of innerHTML
+    let userSuppliedData = "This text is safe";
+    document.getElementById("myDiv").textContent = userSuppliedData;
+  </script>
+</body>
+</html>
